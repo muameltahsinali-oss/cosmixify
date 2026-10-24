@@ -1,0 +1,511 @@
+/* ==========================================================================
+   Cosmixify — Homepage premium design system (visual polish only)
+   Scoped to .home-page — layout & structure unchanged
+   ========================================================================== */
+
+body.home-page {
+    /* Palette */
+    --cosmic-bg: #05060A;
+    --cosmic-surface: #0B1020;
+    --cosmic-surface-2: #111827;
+    --cosmic-purple: #6D5DF6;
+    --cosmic-purple-deep: #6D5DF6;
+    --cosmic-purple-hover: #7B6CFB;
+    --cosmic-purple-glow: rgba(109, 93, 246, 0.22);
+    --cosmic-violet: #7B6CFB;
+    --cosmic-accent: #2ED3FF;
+    --cosmic-text: #F5F7FA;
+    --cosmic-muted: #A1A7B3;
+    --cosmic-success: #5EEB8A;
+    --cosmic-border: rgba(255, 255, 255, 0.06);
+    --cosmic-border-hover: rgba(255, 255, 255, 0.12);
+
+    /* Radius */
+    --cosmic-radius: 24px;
+    --cosmic-radius-sm: 18px;
+    --cosmic-radius-btn: 20px;
+    --cosmic-radius-lg: 32px;
+
+    /* Spacing (8px system) */
+    --space-1: 8px;
+    --space-2: 16px;
+    --space-3: 24px;
+    --space-4: 32px;
+    --space-5: 40px;
+    --space-6: 48px;
+    --section-gap: clamp(64px, 10vw, 96px);
+
+    /* Motion */
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --duration: 250ms;
+
+    /* Shadows */
+    --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.12), 0 8px 24px rgba(0, 0, 0, 0.2);
+    --shadow-lift: 0 4px 8px rgba(0, 0, 0, 0.16), 0 16px 40px rgba(0, 0, 0, 0.28);
+    --shadow-glow: 0 8px 32px rgba(109, 93, 246, 0.16);
+
+    font-family: 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: var(--cosmic-bg);
+    color: var(--cosmic-text);
+}
+
+[dir="rtl"] body.home-page {
+    font-family: 'Changa', ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ---- Hero ---- */
+body.home-page .hero-split {
+    background-color: var(--cosmic-bg);
+    background-image:
+        radial-gradient(ellipse 80% 60% at 20% 40%, rgba(109, 93, 246, 0.06) 0%, transparent 55%),
+        radial-gradient(ellipse 60% 50% at 80% 20%, rgba(46, 211, 255, 0.04) 0%, transparent 50%);
+    border-bottom-color: var(--cosmic-border);
+    padding-bottom: var(--space-6);
+}
+
+body.home-page .hero-split__title {
+    color: var(--cosmic-text);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+}
+
+body.home-page .hero-split__title .text-accent {
+    color: var(--cosmic-primary, var(--cosmic-purple));
+    background: linear-gradient(135deg, var(--cosmic-purple) 0%, var(--cosmic-accent) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+body.home-page .hero-split__lead {
+    color: var(--cosmic-text);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    max-width: 42ch;
+}
+
+body.home-page .hero-split__desc {
+    color: var(--cosmic-muted);
+    max-width: 48ch;
+    line-height: 1.65;
+}
+
+body.home-page .hero-lang-btn {
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--cosmic-radius-btn);
+    border-color: var(--cosmic-border);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    font-weight: 500;
+    transition:
+        border-color var(--duration) var(--ease-out),
+        background var(--duration) var(--ease-out),
+        box-shadow var(--duration) var(--ease-out);
+}
+
+body.home-page .hero-lang-btn:hover {
+    border-color: var(--cosmic-border-hover);
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: var(--shadow-soft);
+}
+
+/* ---- Buttons ---- */
+body.home-page .btn-cosmic {
+    padding: 14px var(--space-3);
+    border-radius: var(--cosmic-radius-btn);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    transition:
+        transform var(--duration) var(--ease-out),
+        box-shadow var(--duration) var(--ease-out),
+        background var(--duration) var(--ease-out),
+        border-color var(--duration) var(--ease-out);
+}
+
+body.home-page .btn-cosmic--primary {
+    background: linear-gradient(135deg, #6D5DF6 0%, #7B6CFB 100%);
+    color: #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 4px 16px rgba(109, 93, 246, 0.24);
+}
+
+body.home-page .btn-cosmic--primary:hover {
+    background: linear-gradient(135deg, #7B6CFB 0%, #8B7CFC 100%);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
+    color: #fff;
+}
+
+body.home-page .btn-cosmic--primary:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(109, 93, 246, 0.35), var(--shadow-glow);
+}
+
+body.home-page .btn-cosmic--ghost {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--cosmic-border);
+    color: var(--cosmic-text);
+}
+
+body.home-page .btn-cosmic--ghost:hover {
+    border-color: var(--cosmic-border-hover);
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--cosmic-text);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
+}
+
+/* ---- Sections ---- */
+body.home-page .home-section--alt {
+    background: rgba(255, 255, 255, 0.015);
+}
+
+body.home-page .home-container {
+    padding-inline: var(--space-3);
+}
+
+body.home-page .section-head {
+    margin-bottom: var(--space-4);
+    gap: var(--space-3);
+}
+
+body.home-page .section-eyebrow {
+    color: var(--cosmic-accent);
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    margin-bottom: var(--space-1);
+}
+
+body.home-page .section-title {
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    color: var(--cosmic-text);
+}
+
+body.home-page .section-title .accent {
+    color: var(--cosmic-purple);
+}
+
+/* ---- Bento cards ---- */
+body.home-page .bento-grid {
+    gap: var(--space-2);
+}
+
+body.home-page .bento-card {
+    border-radius: var(--cosmic-radius);
+    border-color: var(--cosmic-border);
+    background: var(--cosmic-surface-2);
+    box-shadow: var(--shadow-soft);
+    transition:
+        transform var(--duration) var(--ease-out),
+        box-shadow var(--duration) var(--ease-out),
+        border-color var(--duration) var(--ease-out);
+}
+
+body.home-page .bento-card__overlay {
+    background: linear-gradient(
+        180deg,
+        transparent 25%,
+        rgba(5, 6, 10, 0.55) 55%,
+        rgba(5, 6, 10, 0.88) 100%
+    );
+}
+
+body.home-page .bento-card__content {
+    padding: var(--space-3) var(--space-3);
+}
+
+body.home-page .bento-card__content h3 {
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--cosmic-text);
+}
+
+body.home-page .bento-card__content p {
+    color: var(--cosmic-muted);
+    line-height: 1.55;
+}
+
+body.home-page .bento-card__badge {
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: rgba(109, 93, 246, 0.12);
+    border-color: rgba(109, 93, 246, 0.2);
+    color: var(--cosmic-violet);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+}
+
+body.home-page .bento-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--cosmic-border-hover);
+    box-shadow: var(--shadow-lift), var(--shadow-glow);
+}
+
+body.home-page .bento-card:hover img {
+    transform: scale(1.04);
+}
+
+body.home-page .bento-card img {
+    transition: transform 300ms var(--ease-out);
+}
+
+/* ---- Category cards ---- */
+body.home-page .category-bento {
+    padding: var(--space-4) var(--space-3);
+    border-radius: var(--cosmic-radius);
+    background: rgba(17, 24, 39, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-color: var(--cosmic-border);
+    box-shadow: var(--shadow-soft);
+    transition:
+        transform var(--duration) var(--ease-out),
+        border-color var(--duration) var(--ease-out),
+        box-shadow var(--duration) var(--ease-out);
+}
+
+body.home-page .category-bento:hover {
+    transform: translateY(-4px);
+    border-color: var(--cosmic-border-hover);
+    box-shadow: var(--shadow-lift);
+    color: var(--cosmic-text);
+}
+
+body.home-page .category-bento__icon {
+    filter: drop-shadow(0 4px 12px rgba(109, 93, 246, 0.18));
+    margin-bottom: var(--space-2);
+}
+
+body.home-page .category-bento h3 {
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+body.home-page .category-bento p {
+    color: var(--cosmic-muted);
+    max-width: 28ch;
+    margin-inline: auto;
+}
+
+/* ---- Event cards ---- */
+body.home-page .events-bento {
+    gap: var(--space-2);
+}
+
+body.home-page .event-bento-card {
+    border-radius: var(--cosmic-radius);
+    border-color: var(--cosmic-border);
+    background: var(--cosmic-surface);
+    box-shadow: var(--shadow-soft);
+    transition:
+        transform var(--duration) var(--ease-out),
+        box-shadow var(--duration) var(--ease-out),
+        border-color var(--duration) var(--ease-out);
+}
+
+body.home-page .event-bento-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--cosmic-border-hover);
+    box-shadow: var(--shadow-lift);
+}
+
+body.home-page .event-bento-card__body {
+    padding: var(--space-3);
+}
+
+body.home-page .event-bento-card__date {
+    color: var(--cosmic-accent);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+}
+
+body.home-page .event-bento-card h3 {
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--cosmic-text);
+}
+
+body.home-page .event-bento-card p {
+    color: var(--cosmic-muted);
+    margin-bottom: var(--space-2);
+}
+
+/* ---- Empty state ---- */
+body.home-page .home-empty {
+    padding: var(--space-5) var(--space-3);
+    border-radius: var(--cosmic-radius);
+    border-color: var(--cosmic-border);
+    background: rgba(11, 16, 32, 0.5);
+}
+
+body.home-page .home-empty a {
+    color: var(--cosmic-accent);
+    text-decoration: none;
+    transition: color var(--duration) var(--ease-out);
+}
+
+body.home-page .home-empty a:hover {
+    color: var(--cosmic-text);
+}
+
+/* ---- Welcome popup ---- */
+body.home-page .popup-background {
+    background: rgba(5, 6, 10, 0.82);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+body.home-page .popup-container {
+    background: rgba(11, 16, 32, 0.92);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid var(--cosmic-border);
+    border-radius: var(--cosmic-radius-lg);
+    padding: var(--space-5) var(--space-4);
+    box-shadow: var(--shadow-lift), 0 0 64px rgba(109, 93, 246, 0.08);
+}
+
+body.home-page .popup-container h2 {
+    color: var(--cosmic-text);
+    font-weight: 600;
+    letter-spacing: -0.025em;
+}
+
+body.home-page .popup-container p {
+    color: var(--cosmic-muted);
+    max-width: 36ch;
+    margin-inline: auto;
+}
+
+body.home-page .popup-container .btn-close {
+    border-radius: var(--cosmic-radius-btn);
+    background: linear-gradient(135deg, #6D5DF6 0%, #7B6CFB 100%);
+    padding: 12px var(--space-3);
+    transition:
+        transform var(--duration) var(--ease-out),
+        box-shadow var(--duration) var(--ease-out);
+}
+
+body.home-page .popup-container .btn-close:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
+}
+
+/* ---- Solar section ---- */
+body.home-page .home-solar {
+    border-top-color: rgba(255, 255, 255, 0.06);
+}
+
+body.home-page .home-solar .section-title {
+    letter-spacing: -0.025em;
+    font-weight: 600;
+}
+
+/* ---- Site footer (homepage polish) ---- */
+body.home-page .site-footer {
+    background: #0B1020;
+    background-image: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(109, 93, 246, 0.06) 0%, transparent 70%);
+}
+
+body.home-page .site-footer__tagline {
+    color: var(--cosmic-muted);
+}
+
+body.home-page .site-footer__links a:hover {
+    color: var(--cosmic-accent);
+}
+
+/* ---- Search header (homepage) ---- */
+body.home-page .site-header-form .search-container {
+    background: rgba(11, 16, 32, 0.72);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--cosmic-border);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.16);
+}
+
+body.home-page .search-bar input[type="text"] {
+    background: rgba(17, 24, 39, 0.8);
+    border: 1px solid var(--cosmic-border);
+    border-radius: var(--cosmic-radius-sm);
+    color: var(--cosmic-text);
+    font-family: inherit;
+    font-weight: 400;
+    transition:
+        border-color var(--duration) var(--ease-out),
+        box-shadow var(--duration) var(--ease-out);
+}
+
+body.home-page .search-bar input[type="text"]::placeholder {
+    color: var(--cosmic-muted);
+    opacity: 0.7;
+}
+
+body.home-page .search-bar input[type="text"]:focus {
+    outline: none;
+    border-color: rgba(109, 93, 246, 0.45);
+    box-shadow: 0 0 0 3px rgba(109, 93, 246, 0.15);
+}
+
+body.home-page .search-bar button {
+    background: linear-gradient(135deg, #6D5DF6 0%, #7B6CFB 100%);
+    border-radius: var(--cosmic-radius-btn);
+    font-family: inherit;
+    font-weight: 500;
+    transition:
+        transform var(--duration) var(--ease-out),
+        box-shadow var(--duration) var(--ease-out);
+}
+
+body.home-page .search-bar button:hover {
+    background: linear-gradient(135deg, #7B6CFB 0%, #8B7CFC 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(109, 93, 246, 0.28);
+}
+
+body.home-page .login-container a {
+    color: var(--cosmic-muted);
+    transition: color var(--duration) var(--ease-out);
+}
+
+body.home-page .login-container a:hover {
+    color: var(--cosmic-text);
+}
+
+/* ---- Bottom navigation (homepage) ---- */
+body.home-page .bottom-nav {
+    background: #0B1020;
+}
+
+body.home-page .bottom-nav__inner {
+    background: rgba(11, 16, 32, 0.94);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.5),
+        0 0 48px rgba(109, 93, 246, 0.08);
+}
+
+body.home-page .bottom-nav__item.active {
+    background: linear-gradient(135deg, #6D5DF6 0%, #7B6CFB 100%);
+    box-shadow: 0 4px 20px rgba(109, 93, 246, 0.4);
+    color: #fff;
+}
+
+/* ---- Cosmic motion layer tuning ---- */
+body.home-page .home-section--alt::before {
+    background: linear-gradient(90deg, transparent, rgba(109, 93, 246, 0.18), transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.home-page .btn-cosmic,
+    body.home-page .bento-card,
+    body.home-page .category-bento,
+    body.home-page .event-bento-card {
+        transition: none;
+    }
+}

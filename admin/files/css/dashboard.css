@@ -1,0 +1,36 @@
+body {
+    background-color: #fff; /* خلفية بيضاء */
+    color: #000; /* نص أسود */
+}
+
+.navbar {
+    background-color: #f8f9fa; /* لون فاتح للشريط العلوي */
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #fff; /* خلفية بيضاء للكاردات */
+    color: #000; /* نص أسود */
+}
+
+.card-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.card-text {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.btn-dark-purple {
+    background-color: #4a148c; /* لون بنفسجي غامق */
+    border-color: #4a148c;
+    color: #fff; /* نص أبيض على الأزرار */
+}
+
+.btn-dark-purple:hover {
+    background-color: #3d0a6e; /* لون أغمق عند التحويم */
+    border-color: #3d0a6e;
+}

@@ -1,0 +1,593 @@
+/* ==========================================================================
+   Cosmixify — Homepage base styles
+   Active on index: theme.css + home-cosmic.css + home-premium.css
+   ========================================================================== */
+
+:root {
+    --cosmic-bg: #05060A;
+    --cosmic-surface: #0B1020;
+    --cosmic-surface-2: #111827;
+    --cosmic-purple: #6D5DF6;
+    --cosmic-purple-deep: #6D5DF6;
+    --cosmic-purple-glow: rgba(109, 93, 246, 0.22);
+    --cosmic-violet: #7B6CFB;
+    --cosmic-accent: #2ED3FF;
+    --cosmic-text: #F5F7FA;
+    --cosmic-muted: #A1A7B3;
+    --cosmic-border: rgba(255, 255, 255, 0.06);
+    --cosmic-radius: 24px;
+    --cosmic-radius-sm: 18px;
+    --section-gap: clamp(64px, 10vw, 96px);
+}
+
+body.home-page {
+    background: var(--cosmic-bg);
+    color: var(--cosmic-text);
+    padding-bottom: 80px;
+}
+
+/* ---- Split Hero (classic layout, refined) ---- */
+.hero-split {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 100px 0 80px;
+    background-color: var(--cosmic-bg);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.hero-split__inner {
+    width: 100%;
+}
+
+.hero-split__top {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 2rem;
+}
+
+.hero-lang-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--cosmic-text);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.hero-lang-btn:hover {
+    border-color: var(--cosmic-purple);
+    background: rgba(155, 77, 255, 0.08);
+}
+
+.hero-split__main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+.hero-split__visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    max-width: 520px;
+}
+
+.hero-split__astronaut {
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    animation: hero-float 5s ease-in-out infinite;
+}
+
+.hero-split__astronaut.hero-split__fallback {
+    max-width: 280px;
+    opacity: 0.85;
+    filter: none;
+}
+
+@keyframes hero-float {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-14px); }
+}
+
+.hero-split__text {
+    flex: 1;
+    max-width: 540px;
+}
+
+.hero-split__title {
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.text-accent {
+    color: var(--cosmic-purple);
+}
+
+.hero-split__lead {
+    font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+    color: #e0dce8;
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.hero-split__desc {
+    font-size: 1rem;
+    color: var(--cosmic-muted);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+.hero-split__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+/* ---- Buttons ---- */
+.btn-cosmic {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-cosmic--primary {
+    background: var(--cosmic-purple-deep);
+    color: #fff;
+}
+
+.btn-cosmic--primary:hover {
+    background: var(--cosmic-purple);
+    transform: translateY(-2px);
+    color: #fff;
+}
+
+.btn-cosmic--ghost {
+    background: transparent;
+    color: var(--cosmic-text);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.btn-cosmic--ghost:hover {
+    border-color: var(--cosmic-purple);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* ---- Sections ---- */
+.home-section {
+    padding: var(--section-gap) 0;
+    position: relative;
+}
+
+.home-section--alt {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.home-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.section-eyebrow {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--cosmic-purple);
+    margin-bottom: 0.4rem;
+}
+
+.section-title {
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    font-weight: 700;
+    margin: 0;
+    color: var(--cosmic-text);
+}
+
+.section-title .accent {
+    color: var(--cosmic-purple);
+}
+
+/* ---- Bento Grid ---- */
+.bento-grid {
+    display: grid;
+    gap: 1.25rem;
+}
+
+.bento-grid--photos {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, minmax(200px, 240px));
+}
+
+.bento-grid--photos .bento-card--featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+}
+
+.bento-grid--nasa {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, minmax(180px, 220px));
+}
+
+.bento-grid--nasa .bento-card--featured {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.bento-grid--categories {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(160px, auto);
+}
+
+.bento-grid--categories .category-bento--large {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.bento-card {
+    position: relative;
+    display: block;
+    border-radius: var(--cosmic-radius);
+    overflow: hidden;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid var(--cosmic-border);
+    background: var(--cosmic-surface);
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.bento-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.bento-card__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 30%, rgba(5, 5, 8, 0.92) 100%);
+    transition: opacity 0.3s ease;
+}
+
+.bento-card__content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.25rem 1.5rem;
+    z-index: 2;
+}
+
+.bento-card__content h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 0 0.35rem;
+    line-height: 1.3;
+}
+
+.bento-card--featured .bento-card__content h3 {
+    font-size: 1.5rem;
+}
+
+.bento-card__content p {
+    font-size: 0.85rem;
+    color: var(--cosmic-muted);
+    margin: 0;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.bento-card__badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(155, 77, 255, 0.25);
+    border: 1px solid var(--cosmic-border);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.5rem;
+    color: var(--cosmic-violet);
+}
+
+.bento-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(106, 17, 203, 0.25);
+    border-color: rgba(155, 77, 255, 0.4);
+}
+
+.bento-card:hover img {
+    transform: scale(1.06);
+}
+
+/* ---- Category Bento ---- */
+.category-bento {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    border-radius: var(--cosmic-radius);
+    background: var(--cosmic-surface-2);
+    border: 1px solid var(--cosmic-border);
+    text-decoration: none;
+    color: var(--cosmic-text);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    min-height: 160px;
+}
+
+.category-bento:hover {
+    transform: translateY(-6px);
+    border-color: var(--cosmic-purple);
+    box-shadow: 0 16px 40px rgba(106, 17, 203, 0.2);
+    color: #fff;
+}
+
+.category-bento__icon {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 12px var(--cosmic-purple-glow));
+}
+
+.category-bento h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem;
+}
+
+.category-bento p {
+    font-size: 0.85rem;
+    color: var(--cosmic-muted);
+    margin: 0;
+    line-height: 1.5;
+}
+
+.category-bento--large h3 {
+    font-size: 1.35rem;
+}
+
+/* ---- Events Bento ---- */
+.events-bento {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+}
+
+.event-bento-card {
+    position: relative;
+    border-radius: var(--cosmic-radius);
+    overflow: hidden;
+    border: 1px solid var(--cosmic-border);
+    background: var(--cosmic-surface);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-bento-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(106, 17, 203, 0.2);
+}
+
+.event-bento-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.event-bento-card__body {
+    padding: 1.25rem 1.5rem;
+}
+
+.event-bento-card__date {
+    font-size: 0.8rem;
+    color: var(--cosmic-purple);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.5rem;
+}
+
+.event-bento-card h3 {
+    font-size: 1.1rem;
+    margin: 0 0 0.75rem;
+}
+
+.event-bento-card p {
+    font-size: 0.9rem;
+    color: var(--cosmic-muted);
+    margin: 0 0 1rem;
+    line-height: 1.5;
+}
+
+/* ---- Empty state ---- */
+.home-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem;
+    border-radius: var(--cosmic-radius);
+    border: 1px dashed var(--cosmic-border);
+    color: var(--cosmic-muted);
+}
+
+/* ---- Welcome popup (restyled) ---- */
+.popup-background {
+    position: fixed;
+    inset: 0;
+    background: rgba(3, 3, 8, 0.88);
+    backdrop-filter: blur(12px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    padding: 20px;
+}
+
+.popup-container {
+    background: var(--cosmic-surface);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2.5rem;
+    max-width: 480px;
+    text-align: center;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+    color: var(--cosmic-text);
+}
+
+.popup-container img {
+    width: 72px;
+    margin-bottom: 1.25rem;
+}
+
+.popup-container h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.popup-container p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--cosmic-muted);
+    margin-bottom: 1.5rem;
+}
+
+.popup-container .btn-close {
+    background: var(--cosmic-purple-deep);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* ---- Solar system section ---- */
+.home-solar {
+    padding: var(--section-gap) 0;
+    background: #000;
+    border-top: 1px solid var(--cosmic-border);
+}
+
+.home-solar .section-title {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 992px) {
+    .hero-split__main {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-split__text {
+        max-width: 100%;
+    }
+
+    .hero-split__actions {
+        justify-content: center;
+    }
+
+    .hero-split__astronaut {
+        max-width: 280px;
+    }
+
+    .bento-grid--photos {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+    }
+
+    .bento-grid--photos .bento-card--featured {
+        grid-column: 1 / -1;
+        grid-row: auto;
+        min-height: 280px;
+    }
+
+    .bento-grid--nasa {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+    }
+
+    .bento-grid--nasa .bento-card--featured {
+        grid-column: 1 / -1;
+        grid-row: auto;
+        min-height: 260px;
+    }
+
+    .bento-grid--categories {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .bento-grid--categories .category-bento--large {
+        grid-column: 1 / -1;
+        grid-row: auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .bento-grid--photos,
+    .bento-grid--nasa,
+    .bento-grid--categories {
+        grid-template-columns: 1fr;
+    }
+
+    .bento-card {
+        min-height: 220px;
+    }
+
+    .hero-split__actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn-cosmic {
+        justify-content: center;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-split__astronaut {
+        animation: none;
+    }
+
+    .bento-card:hover,
+    .category-bento:hover,
+    .event-bento-card:hover {
+        transform: none;
+    }
+}

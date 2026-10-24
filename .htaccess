@@ -1,0 +1,67 @@
+# Redirect legacy Arabic folder URLs to ?lang=ar
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^ar/?$ index.php?lang=ar [R=302,L,QSA]
+    RewriteRule ^ar/(.+)$ $1?lang=ar [R=302,L,QSA]
+</IfModule>
+
+<Files "config.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+<Files "config.example.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+<Files "profile-bttm-bar.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+<Files "footer.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+<Files "db-conn.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+<Files "bottom-bar.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# DO NOT REMOVE THIS LINE AND THE LINES BELOW ERRORPAGEID:MXhsXmOZZ7
+ErrorDocument 404 /404.html
+# DO NOT REMOVE THIS LINE AND THE LINES ABOVE MXhsXmOZZ7:ERRORPAGEID
+

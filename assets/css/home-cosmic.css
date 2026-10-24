@@ -1,0 +1,239 @@
+/* ==========================================================================
+   Homepage cosmic motion — scoped to .home-page
+   ========================================================================== */
+
+.home-page.cosmic-ready .cosmic-hide {
+    visibility: hidden;
+}
+
+/* ---- Atmosphere layers ---- */
+.cosmic-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.cosmic-grain {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.022;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 180px 180px;
+    mix-blend-mode: overlay;
+}
+
+.cosmic-glow {
+    position: absolute;
+    width: min(520px, 70vw);
+    height: min(520px, 70vw);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(155, 77, 255, 0.22) 0%, rgba(106, 17, 203, 0.08) 45%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+    top: 50%;
+    left: 28%;
+    transform: translate(-50%, -50%);
+    will-change: transform;
+}
+
+[dir="rtl"] .cosmic-glow {
+    left: 72%;
+}
+
+.hero-split__inner {
+    position: relative;
+    z-index: 2;
+}
+
+/* ---- Hero text reveal structure ---- */
+.cosmic-line {
+    display: block;
+    overflow: hidden;
+    line-height: 1.15;
+}
+
+.cosmic-word {
+    display: inline-block;
+    will-change: transform;
+}
+
+.hero-split__lead.cosmic-line,
+.hero-split__desc.cosmic-line {
+    overflow: hidden;
+}
+
+.hero-split__lead .cosmic-line-inner,
+.hero-split__desc .cosmic-line-inner {
+    display: block;
+    will-change: transform, opacity;
+}
+
+/* Initial states before GSAP runs */
+.home-page.cosmic-ready .hero-split__astronaut {
+    animation: none;
+}
+
+.home-page .home-section {
+    position: relative;
+}
+
+.home-page.cosmic-ready .hero-split__visual,
+.home-page.cosmic-ready .hero-split__text .cosmic-word,
+.home-page.cosmic-ready .hero-split__text .cosmic-line-inner,
+.home-page.cosmic-ready .hero-split__actions .btn-cosmic,
+.home-page.cosmic-ready .hero-split__top {
+    opacity: 0;
+}
+
+.home-page.cosmic-reduced .hero-split__visual,
+.home-page.cosmic-reduced .hero-split__text .cosmic-word,
+.home-page.cosmic-reduced .hero-split__text .cosmic-line-inner,
+.home-page.cosmic-reduced .hero-split__actions .btn-cosmic,
+.home-page.cosmic-reduced .hero-split__top {
+    opacity: 1;
+}
+
+.home-section--alt {
+    position: relative;
+}
+
+.home-section--alt::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(155, 77, 255, 0.35), transparent);
+    transform: scaleX(0);
+    transform-origin: center;
+    opacity: 0;
+    transition: transform 0.8s ease, opacity 0.6s ease;
+}
+
+.home-section--alt.cosmic-line-visible::before {
+    transform: scaleX(1);
+    opacity: 1;
+}
+
+/* ---- Scroll reveal initial state ---- */
+.home-page.cosmic-ready [data-cosmic-reveal]:not(.home-solar) {
+    opacity: 0;
+    transform: translateY(48px);
+}
+
+.home-page.cosmic-ready .home-solar {
+    opacity: 1;
+    transform: none;
+}
+
+.home-page.cosmic-reduced [data-cosmic-reveal] {
+    opacity: 1;
+    transform: none;
+}
+
+/* ---- Bento enhancements ---- */
+.home-page .bento-card {
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+.home-page .bento-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        105deg,
+        transparent 42%,
+        rgba(255, 255, 255, 0.06) 50%,
+        transparent 58%
+    );
+    transform: translateX(-120%);
+    transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+    z-index: 3;
+}
+
+.home-page .bento-card:hover::after {
+    transform: translateX(120%);
+}
+
+.home-page .bento-card--parallax img {
+    height: 115%;
+    will-change: transform;
+}
+
+.home-page .category-bento {
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.35s ease;
+}
+
+.home-page .category-bento:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.28), 0 0 24px rgba(109, 93, 246, 0.1);
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+.home-page .category-bento__icon {
+    will-change: transform;
+}
+
+/* ---- Solar reveal ---- */
+.home-solar .section-title {
+    will-change: transform, opacity;
+}
+
+/* Solar section always visible — GSAP animates title only */
+.home-page.cosmic-ready .home-solar,
+.home-page.cosmic-ready .home-solar .section-title,
+.home-page.cosmic-reduced .home-solar .section-title {
+    opacity: 1;
+    transform: none;
+}
+
+/* ---- Popup ---- */
+.popup-background {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.popup-background.is-visible {
+    visibility: visible;
+}
+
+.popup-container {
+    will-change: transform, opacity;
+}
+
+/* ---- Lenis ---- */
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .home-page .bento-card::after {
+        display: none;
+    }
+
+    .cosmic-canvas,
+    .cosmic-grain {
+        display: none;
+    }
+}
